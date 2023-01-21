@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myapp-deployment
-        image: gcr.io/devops-project-368608/development/fe@sha256:be5bc0fe6f38558563d7d8e4664a4555b3527da9b6edcb1013d72d6a13dc72a6
+        image: gcr.io/devops-project-368608/development/fe@sha256:46bfb3051579bd97b8f3a5d8e75b28d4a4771c91183db04b3efd373defba1049
         ports:
         - containerPort: 3000
 ---
