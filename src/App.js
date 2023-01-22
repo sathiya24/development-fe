@@ -7,7 +7,7 @@ import CreateBook from './CreateBook';
 function App() {
   const [books, setBooks] = useState([]);   
   useEffect(() => {
-    getBooksAPI().then(books => setBooks([books]));
+    getBooksAPI().then(books => setBooks(books.data));
   }, [])
 
   const addBook = (book) => {

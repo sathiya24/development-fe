@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myapp-deployment
-        image: gcr.io/devops-project-368608/development/fe@sha256:46bfb3051579bd97b8f3a5d8e75b28d4a4771c91183db04b3efd373defba1049
+        image: asia.gcr.io/devops-project-368608/development-fe-repo/myimage@sha256:aaa81f76716791f6cc7db6e2e65976d8c65117a9ffbcb52e10c7257252228a95
         ports:
         - containerPort: 3000
 ---
@@ -43,7 +43,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "myapp.sathya.shop"
+  - host: "myfe.sathya.shop"
     http: 
       paths: 
       - path: /
