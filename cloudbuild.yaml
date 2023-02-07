@@ -2,13 +2,13 @@ steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-           'asia.gcr.io/${PROJECT_ID}/development-fe-repo/myimage:${SHORT_SHA}', 
+           'asia.gcr.io/devops-project-368608/development-fe-repo/myimage:${SHORT_SHA}', 
            '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'asia.gcr.io/${PROJECT_ID}/development-fe-repo/myimage:${SHORT_SHA}']
+           'asia.gcr.io/devops-project-368608/development-fe-repo/myimage:${SHORT_SHA}']
 # Docker Push
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: /bin/bash
@@ -23,7 +23,7 @@ steps:
     - |
          docker_image=`cat version.txt`
          echo $docker_image
-         sed -e "s#CONTAINER_IMAGE#asia.gcr.io/devops-project-368608/development-be-repo/myimage:${SHORT_SHA}#" < myapp.yaml > myapp-clone.yaml
+         sed -e "s#CONTAINER_IMAGE#asia.gcr.io/devops-project-368608/development-fe-repo/myimage:${SHORT_SHA}#" < myapp.yaml > myapp-clone.yaml
          cat myapp-clone.yaml
          export GOOGLE_APPLICATION_CREDENTIALS=./serviceaccount.json
          gcloud container clusters get-credentials gke-terraform-learn --zone us-central1-c --project devops-project-368608
