@@ -4,8 +4,8 @@ function CreateBook(props) {
     const {onCreate} = props;
 
     const [book, setBook] = useState({
-      title:"",
-      description: ""   
+      Newtitle:"",
+      Description: ""   
     });
 
     const handleChange = (e) => {
