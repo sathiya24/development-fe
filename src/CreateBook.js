@@ -4,8 +4,8 @@ function CreateBook(props) {
     const {onCreate} = props;
 
     const [book, setBook] = useState({
-      Newtitle:"",
-      Description: ""   
+      title:"",
+      descriptions: ""   
     });
 
     const handleChange = (e) => {
@@ -23,7 +23,7 @@ function CreateBook(props) {
     return (
       <form onSubmit={onSubmit}>
         <label>
-          Title:
+          NewTitle:
           <input name ="title" type="text" value={book.title} onChange={(e) => handleChange(e)}/>
         </label>
         <label>
