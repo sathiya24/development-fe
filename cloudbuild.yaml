@@ -16,3 +16,15 @@ steps:
       - "-c"
       - |
       - echo ${COMMIT_SHA} "HIII" ${SHORT_SHA} "HIi"
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: /bin/sh
+    args:
+    - '-c'
+    - |
+         docker_image=`cat version.txt`
+         echo $docker_image
+         sed -e "s#CONTAINER_IMAGE#asia.gcr.io/devops-project-368608/development-be-repo/myimage:${SHORT_SHA}#" < myapp.yaml > myapp-clone.yaml
+         cat myapp-clone.yaml
+         export GOOGLE_APPLICATION_CREDENTIALS=./serviceaccount.json
+         gcloud container clusters get-credentials gke-terraform-learn --zone us-central1-c --project devops-project-368608
+         kubectl apply -f myapp-clone.yaml 

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myapp-deployment
-        image: asia.gcr.io/devops-project-368608/development-fe-repo/myimage@sha256:a65b05f45701936b2c2fb33844f15bc0eb193547b7ac2e5c07b62c11ebaa5447
+        image: CONTAINER_IMAGE
         ports:
         - containerPort: 3000
 ---
@@ -27,7 +27,7 @@ metadata:
   namespace: default
 spec:
   ports:
-  - nodePort: 30023
+  - nodePort: 30024
     port: 3000
     protocol: TCP
     targetPort: 3000
