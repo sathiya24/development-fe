@@ -23,7 +23,7 @@ function CreateBook(props) {
     return (
       <form onSubmit={onSubmit}>
         <label>
-          Title:
+          NEWTitle:
           <input name ="title" type="text" value={book.title} onChange={(e) => handleChange(e)}/>
         </label>
         <label>
