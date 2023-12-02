@@ -1,11 +1,11 @@
 export function getBooksAPI(){
-    return fetch('http://mybe.sathya.shop/books')
+    return fetch('http://backend.sathyas.shop/books')
     .then(res => res.json())
     .then(data => data);
 }
 
 export function addBookAPI(book){
-    return fetch('http://mybe.sathya.shop/books', {
+    return fetch('http://backend.sathyas.shop/books', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -17,7 +17,7 @@ export function addBookAPI(book){
 }
 
 export function updateBookAPI(book){
-    return fetch(`http://mybe.sathya.shop/books${book._id}`, {
+    return fetch(`http://backend.sathyas.shop/books${book._id}`, {
         method: 'PATCH',
         headers: {
             'content-type': 'application/json'
@@ -29,7 +29,7 @@ export function updateBookAPI(book){
 }
 
 export function deleteBookAPI(id) {
-    return fetch(`http://mybe.sathya.shop/books${id}`, {
+    return fetch(`http://backend.sathyas.shop/books${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'

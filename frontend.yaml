@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp-deployment
+  template:
+    metadata:
+      labels:
+        app: myapp-deployment
+    spec:
+      containers:
+      - name: myapp-deployment
+        image: asia.gcr.io/devops-404710/frontimage@sha256:9004f413e63fd59b191b1b9182b90a3c34eccf3333c9b72075ce3333a3e64afd
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+  namespace: default
+spec:
+  ports:
+  - nodePort: 30024
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: myapp-deployment
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+  annotations:
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "myapp.sathyas.shop"
+    http: 
+      paths: 
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: myapp-service
+            port:
+              number: 3000
