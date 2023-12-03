@@ -43,7 +43,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "portal.sathya.shop"
+  - host: "portal.sathyas.shop"
     http: 
       paths: 
       - path: /
